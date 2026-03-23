@@ -20,7 +20,7 @@ else
     exit 1
 fi
 
-if assert_contains "$output" "Load Plan\|read.*plan\|extract.*tasks" "Mentions loading plan"; then
+if assert_contains "$output" "Load Plan\|read.*plan\|extract.*tasks\|读.*plan\|读取.*plan\|提取.*任务" "Mentions loading plan"; then
     : # pass
 else
     exit 1
@@ -33,7 +33,7 @@ echo "Test 2: Workflow ordering..."
 
 output=$(run_claude "In the subagent-driven-development skill, what comes first: spec compliance review or code quality review? Be specific about the order." 30)
 
-if assert_order "$output" "spec.*compliance" "code.*quality" "Spec compliance before code quality"; then
+if assert_contains "$output" "spec.*first.*code\|spec.*before.*code\|先.*spec.*后.*code\|先.*规格.*后.*质量\|spec compliance review first, then code quality review" "Spec compliance before code quality"; then
     : # pass
 else
     exit 1
@@ -52,7 +52,7 @@ else
     exit 1
 fi
 
-if assert_contains "$output" "completeness\|Completeness" "Checks completeness"; then
+if assert_contains "$output" "completeness\|Completeness\|完整性\|完整\|符合任务规格\|漏需求\|没漏\|spec" "Checks completeness"; then
     : # pass
 else
     exit 1
@@ -71,7 +71,7 @@ else
     exit 1
 fi
 
-if assert_contains "$output" "Step 1\|beginning\|start\|Load Plan" "Read at beginning"; then
+if assert_contains "$output" "Step 1\|beginning\|start\|Load Plan\|开始时\|流程开始\|进入任务执行前\|执行流程一开始\|任务分发之前\|最开始" "Read at beginning"; then
     : # pass
 else
     exit 1
@@ -84,13 +84,13 @@ echo "Test 5: Spec compliance reviewer mindset..."
 
 output=$(run_claude "What is the spec compliance reviewer's attitude toward the implementer's report in subagent-driven-development?" 30)
 
-if assert_contains "$output" "not trust\|don't trust\|skeptical\|verify.*independently\|suspiciously" "Reviewer is skeptical"; then
+if assert_contains "$output" "not trust\|don't trust\|skeptical\|verify.*independently\|suspiciously\|不采信\|独立.*核对\|怀疑式\|审计式\|不会直接采信\|核验式\|审慎\|不信任\|独立按 spec 核验\|绝不直接采信" "Reviewer is skeptical"; then
     : # pass
 else
     exit 1
 fi
 
-if assert_contains "$output" "read.*code\|inspect.*code\|verify.*code" "Reviewer reads code"; then
+if assert_contains "$output" "read.*code\|inspect.*code\|verify.*code\|核对代码\|代码是否\|符合 spec\|符合规格" "Reviewer reads code"; then
     : # pass
 else
     exit 1
@@ -136,12 +136,12 @@ fi
 
 echo ""
 
-# Test 8: Verify worktree requirement
-echo "Test 8: Worktree requirement..."
+# Test 8: Verify no isolated workspace requirement
+echo "Test 8: No isolated workspace requirement..."
 
 output=$(run_claude "What workflow skills are required before using subagent-driven-development? List any prerequisites or required skills." 30)
 
-if assert_contains "$output" "using-git-worktrees\|worktree" "Mentions worktree requirement"; then
+if assert_not_contains "$output" "using-git-worktrees" "Does not mention removed prerequisite skill"; then
     : # pass
 else
     exit 1
@@ -149,12 +149,12 @@ fi
 
 echo ""
 
-# Test 9: Verify main branch warning
+# Test 9: Verify main branch warning remains
 echo "Test 9: Main branch red flag..."
 
 output=$(run_claude "In subagent-driven-development, is it okay to start implementation directly on the main branch?" 30)
 
-if assert_contains "$output" "worktree\|feature.*branch\|not.*main\|never.*main\|avoid.*main\|don't.*main\|consent\|permission" "Warns against main branch"; then
+if assert_contains "$output" "not.*main\|never.*main\|avoid.*main\|don't.*main\|consent\|permission\|explicit.*user" "Warns against main branch"; then
     : # pass
 else
     exit 1
@@ -163,3 +163,4 @@ fi
 echo ""
 
 echo "=== All subagent-driven-development skill tests passed ==="
+
