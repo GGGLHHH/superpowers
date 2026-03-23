@@ -2,7 +2,7 @@
   "name": "superpowers-dev",
   "description": "Development marketplace for Superpowers core skills library",
   "owner": {
-    "name": "Jesse Vincent",
+    "name": "GGGLHHH",
     "email": "jesse@fsck.com"
   },
   "plugins": [
@@ -12,7 +12,7 @@
       "version": "5.0.7",
       "source": "./",
       "author": {
-        "name": "Jesse Vincent",
+        "name": "GGGLHHH",
         "email": "jesse@fsck.com"
       }
     }

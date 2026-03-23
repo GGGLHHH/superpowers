@@ -45,7 +45,7 @@ The Superpowers marketplace provides Superpowers and some other related plugins 
 In Claude Code, register the marketplace first:
 
 ```bash
-/plugin marketplace add obra/superpowers-marketplace
+/plugin marketplace add GGGLHHH/superpowers-marketplace
 ```
 
 Then install the plugin from this marketplace:
@@ -193,3 +193,4 @@ Superpowers is built by [Jesse Vincent](https://blog.fsck.com) and the rest of t
 - **Discord**: [Join us](https://discord.gg/35wsABTejz) for community support, questions, and sharing what you're building with Superpowers
 - **Issues**: https://github.com/obra/superpowers/issues
 - **Release announcements**: [Sign up](https://primeradiant.com/superpowers/) to get notified about new versions
+- **Marketplace**: https://github.com/GGGLHHH/superpowers-marketplace

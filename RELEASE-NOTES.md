@@ -1031,7 +1031,7 @@ This release includes:
 
 ```bash
 # In Claude Code
-/plugin marketplace add obra/superpowers-marketplace
+/plugin marketplace add GGGLHHH/superpowers-marketplace
 /plugin install superpowers@superpowers-marketplace
 ```
 
