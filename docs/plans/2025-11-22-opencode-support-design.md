@@ -260,27 +260,24 @@ superpowers/
 
 ## Next Steps
 
-1. **Create isolated workspace** (using git worktrees)
-   - Branch: `feature/opencode-support`
-
-2. **Follow TDD where applicable**
+1. **Follow TDD where applicable**
    - Test shared core functions
    - Test skill discovery and parsing
    - Integration tests for both platforms
 
-3. **Incremental implementation**
+2. **Incremental implementation**
    - Phase 1: Refactor shared core + update Codex
    - Verify Codex still works before moving on
    - Phase 2: Build OpenCode plugin
    - Phase 3: Documentation and polish
 
-4. **Testing strategy**
+3. **Testing strategy**
    - Manual testing with real OpenCode installation
    - Verify skill loading, directories, scripts work
    - Test both Codex and OpenCode side-by-side
    - Verify tool mappings work correctly
 
-5. **PR and merge**
+4. **PR and merge**
    - Create PR with complete implementation
    - Test in clean environment
    - Merge to main

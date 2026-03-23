@@ -383,10 +383,6 @@ Updated `~/.codex/skills/` reference (deprecated) to `~/.agents/skills/` for nat
 
 ### Improvements
 
-**Worktree isolation now required before implementation**
-
-Added `using-git-worktrees` as a required skill for both `subagent-driven-development` and `executing-plans`. Implementation workflows now explicitly require setting up an isolated worktree before starting work, preventing accidental work directly on main.
-
 **Main branch protection softened to require explicit consent**
 
 Instead of prohibiting main branch work entirely, the skills now allow it with explicit user consent. More flexible while still ensuring users are aware of the implications.
@@ -401,7 +397,6 @@ Improved documentation of how Codex tools map to Claude Code equivalents for sub
 
 ### Tests
 
-- Added worktree requirement test for subagent-driven-development
 - Added main branch red flag warning test
 - Fixed case sensitivity in skill recognition test assertions
 
@@ -757,7 +752,7 @@ These changes address observed agent behavior where they rationalize around skil
 - Added Phase 4: Design Documentation to brainstorming skill
 - Design documents now written to `docs/plans/YYYY-MM-DD-<topic>-design.md` before implementation
 - Restores functionality from original brainstorming command that was lost during skill conversion
-- Documents written before worktree setup and implementation planning
+- Documents written before implementation planning
 - Tested with subagent to verify compliance under time pressure
 
 ### Breaking Changes
@@ -788,7 +783,7 @@ These changes address observed agent behavior where they rationalize around skil
 
 **Skill names standardized to lowercase**
 - All skill frontmatter `name:` fields now use lowercase kebab-case matching directory names
-- Examples: `brainstorming`, `test-driven-development`, `using-git-worktrees`
+- Examples: `brainstorming`, `test-driven-development`
 - All skill announcements and cross-references updated to lowercase format
 - This ensures consistent naming across directory names, frontmatter, and documentation
 
