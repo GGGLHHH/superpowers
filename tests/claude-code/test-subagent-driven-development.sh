@@ -136,12 +136,12 @@ fi
 
 echo ""
 
-# Test 8: Verify no isolated workspace requirement
-echo "Test 8: No isolated workspace requirement..."
+# Test 8: Verify required workflow skills
+echo "Test 8: Required workflow skills..."
 
 output=$(run_claude "What workflow skills are required before using subagent-driven-development? List any prerequisites or required skills." 30)
 
-if assert_not_contains "$output" "using-git-worktrees" "Does not mention removed prerequisite skill"; then
+if assert_contains "$output" "writing-plans|requesting-code-review|finishing-a-development-branch" "Lists current workflow skills"; then
     : # pass
 else
     exit 1
@@ -163,4 +163,3 @@ fi
 echo ""
 
 echo "=== All subagent-driven-development skill tests passed ==="
-
